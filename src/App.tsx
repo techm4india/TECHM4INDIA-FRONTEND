@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react'
 import { AuthProvider } from './contexts/AuthContext'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 const LaunchPage = lazy(() => import('./pages/LaunchPage'))
 const LaunchCountdown = lazy(() => import('./pages/LaunchCountdown'))
@@ -52,12 +53,13 @@ const Fallback = () => (
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <ScrollToTop />
-        <Layout>
-          <Suspense fallback={<Fallback />}>
-            <Routes>
+    <ErrorBoundary>
+      <AuthProvider>
+        <Router>
+          <ScrollToTop />
+          <Layout>
+            <Suspense fallback={<Fallback />}>
+              <Routes>
               <Route path="/" element={<LaunchPage />} />
               <Route path="/launch" element={<LaunchCountdown />} />
               <Route path="/home" element={<Home />} />
@@ -117,6 +119,7 @@ function App() {
         </Layout>
       </Router>
     </AuthProvider>
+    </ErrorBoundary>
   )
 }
 
