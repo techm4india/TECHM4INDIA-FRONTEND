@@ -1,0 +1,34 @@
+.shuffle-parent {
+  display: inline-block;
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+.shuffle-char {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.shuffle-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.shuffle-line {
+  display: block;
+}
+
+.shuffle-parent.is-ready {
+  /* Component is ready */
+}
+
+/* Prevent awkward word breaks */
+.shuffle-parent h1,
+.shuffle-parent h2,
+.shuffle-parent h3 {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
