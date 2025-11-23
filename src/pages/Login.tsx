@@ -20,8 +20,9 @@ export default function Login() {
       await signIn(email, password)
       showToast('Login successful!', 'success')
       navigate('/home')
-    } catch (error: any) {
-      showToast(error.message || 'Login failed. Please check your credentials.', 'error')
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Login failed. Please check your credentials.'
+      showToast(errorMessage, 'error')
     } finally {
       setIsLoading(false)
     }

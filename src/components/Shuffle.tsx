@@ -6,11 +6,16 @@ import './Shuffle.css'
 
 // SplitText is a premium GSAP plugin - import if available
 // You may need to install it separately or have a GSAP premium membership
-let GSAPSplitText: any
+type SplitTextType = typeof import('gsap/SplitText').SplitText | undefined
+let GSAPSplitText: SplitTextType
 try {
-  // @ts-ignore
-  GSAPSplitText = require('gsap/SplitText').SplitText
-  gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP)
+  const splitTextModule = require('gsap/SplitText') as { SplitText: SplitTextType }
+  GSAPSplitText = splitTextModule?.SplitText
+  if (GSAPSplitText) {
+    gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP)
+  } else {
+    gsap.registerPlugin(ScrollTrigger, useGSAP)
+  }
 } catch {
   // Fallback registration
   gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -70,7 +75,7 @@ const Shuffle = ({
   const ref = useRef<HTMLElement>(null)
   const [fontsLoaded, setFontsLoaded] = useState(false)
   const [ready, setReady] = useState(false)
-  const splitRef = useRef<any | null>(null)
+  const splitRef = useRef<{ chars: HTMLElement[]; revert: () => void } | null>(null)
   const wrappersRef = useRef<HTMLElement[]>([])
   const tlRef = useRef<gsap.core.Timeline | null>(null)
   const playingRef = useRef(false)
@@ -134,8 +139,8 @@ const Shuffle = ({
         teardown()
 
         // Try to use SplitText if available, otherwise create a simple character split
-        if (typeof window !== 'undefined' && (window as any).SplitText) {
-          GSAPSplitText = (window as any).SplitText
+        if (typeof window !== 'undefined' && (window as typeof window & { SplitText?: SplitTextType }).SplitText) {
+          GSAPSplitText = (window as typeof window & { SplitText: SplitTextType }).SplitText
         }
         
         if (!GSAPSplitText) {

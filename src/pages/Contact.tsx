@@ -22,8 +22,9 @@ export default function Contact() {
       await api.post('/contact', formData)
       showToast('Thank you for your message! We will get back to you soon.', 'success')
       setFormData({ name: '', email: '', phone: '', message: '' })
-    } catch (error: any) {
-      showToast(error.message || 'Failed to send message. Please try again.', 'error')
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again.'
+      showToast(errorMessage, 'error')
     } finally {
       setIsSubmitting(false)
     }

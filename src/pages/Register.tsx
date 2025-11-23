@@ -35,8 +35,9 @@ export default function Register() {
       await signUp(formData.email, formData.password, formData.name)
       showToast('Registration successful! Welcome to TechM4India!', 'success')
       navigate('/home')
-    } catch (error: any) {
-      showToast(error.message || 'Registration failed. Please try again.', 'error')
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Registration failed. Please try again.'
+      showToast(errorMessage, 'error')
     } finally {
       setIsLoading(false)
     }

@@ -1,9 +1,9 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api'
 
-export async function apiRequest(
+export async function apiRequest<T = unknown>(
   endpoint: string,
   options: RequestInit = {}
-): Promise<any> {
+): Promise<T> {
   const token = localStorage.getItem('token')
   
   const headers: Record<string, string> = {
@@ -29,11 +29,11 @@ export async function apiRequest(
 }
 
 export const api = {
-  get: (endpoint: string) => apiRequest(endpoint, { method: 'GET' }),
-  post: (endpoint: string, data: any) => 
-    apiRequest(endpoint, { method: 'POST', body: JSON.stringify(data) }),
-  put: (endpoint: string, data: any) => 
-    apiRequest(endpoint, { method: 'PUT', body: JSON.stringify(data) }),
-  delete: (endpoint: string) => apiRequest(endpoint, { method: 'DELETE' }),
+  get: <T = unknown>(endpoint: string) => apiRequest<T>(endpoint, { method: 'GET' }),
+  post: <T = unknown>(endpoint: string, data: unknown) => 
+    apiRequest<T>(endpoint, { method: 'POST', body: JSON.stringify(data) }),
+  put: <T = unknown>(endpoint: string, data: unknown) => 
+    apiRequest<T>(endpoint, { method: 'PUT', body: JSON.stringify(data) }),
+  delete: <T = unknown>(endpoint: string) => apiRequest<T>(endpoint, { method: 'DELETE' }),
 }
 
