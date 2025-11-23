@@ -86,7 +86,7 @@ export default function LaunchPage() {
 
         <div className="space-y-4">
           <button
-            onClick={() => navigate('/launch')}
+            onClick={() => navigate('/home')}
             className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform relative overflow-hidden group"
           >
             <Rocket className="w-5 h-5 mr-3 z-10" />
