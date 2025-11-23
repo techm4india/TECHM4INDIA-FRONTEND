@@ -1,4 +1,4 @@
-import { TrendingUp, Award, Lightbulb, Briefcase, Rocket, FileText, Globe } from 'lucide-react'
+import { TrendingUp, Award, Lightbulb, Briefcase, Rocket, Globe } from 'lucide-react'
 import Hero from '../../components/Hero'
 
 export default function TechM4EngineeringBenefits() {

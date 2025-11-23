@@ -168,7 +168,7 @@ const Shuffle = ({
         const rolls = Math.max(1, Math.floor(shuffleTimes))
         const rand = (set: string) => set.charAt(Math.floor(Math.random() * set.length)) || ''
 
-        chars.forEach(ch => {
+        chars.forEach((ch: HTMLElement) => {
           const parent = ch.parentElement
           if (!parent) return
 
@@ -269,7 +269,7 @@ const Shuffle = ({
           repeatDelay: loop ? loopDelay : 0,
           onRepeat: () => {
             if (scrambleCharset) randomizeScrambles()
-            gsap.set(strips, { x: (i, t) => parseFloat((t as HTMLElement).getAttribute('data-start-x') || '0') })
+            gsap.set(strips, { x: (_i, t) => parseFloat((t as HTMLElement).getAttribute('data-start-x') || '0') })
             onShuffleComplete?.()
           },
           onComplete: () => {
@@ -287,7 +287,7 @@ const Shuffle = ({
           tl.to(
             targets,
             {
-              x: (i, t) => parseFloat((t as HTMLElement).getAttribute('data-final-x') || '0'),
+              x: (_i, t) => parseFloat((t as HTMLElement).getAttribute('data-final-x') || '0'),
               duration,
               ease,
               force3D: true,

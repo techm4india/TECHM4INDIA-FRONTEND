@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { GraduationCap, Code, Rocket, Globe, ArrowRight } from 'lucide-react'
 import Hero from '../components/Hero'
-import FeatureCard from '../components/FeatureCard'
 
 export default function ProgramsServices() {
   return (

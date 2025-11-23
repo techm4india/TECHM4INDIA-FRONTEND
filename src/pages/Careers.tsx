@@ -1,4 +1,4 @@
-import { Briefcase, Code, GraduationCap, TrendingUp, Users, Zap, Rocket, Globe, Target } from 'lucide-react'
+import { Code, GraduationCap, TrendingUp, Users, Zap, Rocket, Globe, Target } from 'lucide-react'
 import Hero from '../components/Hero'
 import FeatureCard from '../components/FeatureCard'
 import CTA from '../components/CTA'

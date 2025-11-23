@@ -1,4 +1,4 @@
-import { Building2, GraduationCap, TrendingUp, Award, Lightbulb, Globe, Code2 } from 'lucide-react'
+import { Building2, Award, Lightbulb, Globe, Code2 } from 'lucide-react'
 import Hero from '../../components/Hero'
 
 export default function TechM4SchoolsBenefits() {

@@ -1,7 +1,6 @@
 import { GraduationCap, Sparkles, Target } from 'lucide-react'
 import Hero from '../../components/Hero'
 import FeatureCard from '../../components/FeatureCard'
-import CTA from '../../components/CTA'
 import { Link } from 'react-router-dom'
 
 export default function TechM4SchoolsAbout() {
