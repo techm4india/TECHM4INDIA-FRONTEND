@@ -247,11 +247,9 @@ const ScrollStack = ({
         infinite: false,
         gestureOrientation: 'vertical',
         wheelMultiplier: 1,
-        touchInertiaMultiplier: 35,
         lerp: 0.1,
         syncTouch: true,
-        syncTouchLerp: 0.075,
-        touchInertia: 0.6
+        syncTouchLerp: 0.075
       })
 
       lenis.on('scroll', handleScroll)

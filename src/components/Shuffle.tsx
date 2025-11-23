@@ -6,20 +6,18 @@ import './Shuffle.css'
 
 // SplitText is a premium GSAP plugin - import if available
 // You may need to install it separately or have a GSAP premium membership
-type SplitTextType = typeof import('gsap/SplitText').SplitText | undefined
-let GSAPSplitText: SplitTextType
-try {
-  const splitTextModule = require('gsap/SplitText') as { SplitText: SplitTextType }
-  GSAPSplitText = splitTextModule?.SplitText
-  if (GSAPSplitText) {
-    gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP)
-  } else {
-    gsap.registerPlugin(ScrollTrigger, useGSAP)
+// Since SplitText is optional, we'll use a fallback approach
+type SplitTextType = {
+  new (element: HTMLElement, options?: { type?: string; charsClass?: string; wordsClass?: string; linesClass?: string; smartWrap?: boolean; reduceWhiteSpace?: boolean }): {
+    chars: Element[]
+    revert: () => void
   }
-} catch {
-  // Fallback registration
-  gsap.registerPlugin(ScrollTrigger, useGSAP)
-}
+} | undefined
+
+let GSAPSplitText: SplitTextType
+
+// Register plugins (SplitText will be checked at runtime if available)
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 interface ShuffleProps {
   text: string
@@ -75,7 +73,7 @@ const Shuffle = ({
   const ref = useRef<HTMLElement>(null)
   const [fontsLoaded, setFontsLoaded] = useState(false)
   const [ready, setReady] = useState(false)
-  const splitRef = useRef<{ chars: HTMLElement[]; revert: () => void } | null>(null)
+  const splitRef = useRef<{ chars: Element[]; revert: () => void } | null>(null)
   const wrappersRef = useRef<HTMLElement[]>([])
   const tlRef = useRef<gsap.core.Timeline | null>(null)
   const playingRef = useRef(false)
@@ -139,6 +137,7 @@ const Shuffle = ({
         teardown()
 
         // Try to use SplitText if available, otherwise create a simple character split
+        // Check if SplitText is available on window (injected by GSAP premium)
         if (typeof window !== 'undefined' && (window as typeof window & { SplitText?: SplitTextType }).SplitText) {
           GSAPSplitText = (window as typeof window & { SplitText: SplitTextType }).SplitText
         }
@@ -156,8 +155,8 @@ const Shuffle = ({
           })
           chars.forEach(char => el.appendChild(char))
           splitRef.current = { chars, revert: () => {} }
-        } else {
-          splitRef.current = new GSAPSplitText(el, {
+        } else if (GSAPSplitText) {
+          const splitTextInstance = new GSAPSplitText(el, {
             type: 'chars',
             charsClass: 'shuffle-char',
             wordsClass: 'shuffle-word',
@@ -165,15 +164,20 @@ const Shuffle = ({
             smartWrap: true,
             reduceWhiteSpace: false
           })
+          splitRef.current = {
+            chars: splitTextInstance.chars,
+            revert: () => splitTextInstance.revert()
+          }
         }
 
-        const chars = splitRef.current.chars || Array.from(el.querySelectorAll('.shuffle-char'))
+        const chars = splitRef.current?.chars || Array.from(el.querySelectorAll('.shuffle-char'))
         wrappersRef.current = []
 
         const rolls = Math.max(1, Math.floor(shuffleTimes))
         const rand = (set: string) => set.charAt(Math.floor(Math.random() * set.length)) || ''
 
-        chars.forEach((ch: HTMLElement) => {
+        chars.forEach((ch) => {
+          if (!(ch instanceof HTMLElement)) return
           const parent = ch.parentElement
           if (!parent) return
 
