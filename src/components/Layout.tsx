@@ -7,7 +7,7 @@ interface LayoutProps {
   children: ReactNode
 }
 
-const CHROMELESS_ROUTES = ['/', '/countdown']
+const CHROMELESS_ROUTES = ['/']
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation()

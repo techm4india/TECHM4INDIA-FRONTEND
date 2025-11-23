@@ -6,7 +6,6 @@ import ScrollToTop from './components/ScrollToTop'
 import { ErrorBoundary } from './components/ErrorBoundary'
 
 const LaunchPage = lazy(() => import('./pages/LaunchPage'))
-const LaunchCountdown = lazy(() => import('./pages/LaunchCountdown'))
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const WhyTechM4India = lazy(() => import('./pages/WhyTechM4India'))
@@ -61,7 +60,6 @@ function App() {
             <Suspense fallback={<Fallback />}>
               <Routes>
               <Route path="/" element={<LaunchPage />} />
-              <Route path="/launch" element={<LaunchCountdown />} />
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/why-techm4india" element={<WhyTechM4India />} />

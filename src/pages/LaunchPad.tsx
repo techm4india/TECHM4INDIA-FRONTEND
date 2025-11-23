@@ -38,8 +38,7 @@ export default function LaunchPad() {
         </h1>
 
         <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-          Before we step into the full platform, initiate the launch sequence and watch our mission ignite.
-          Brace for a countdown that leads straight into the heart of India's first experiential learning ecosystem.
+          Step into the full platform and explore India's first experiential learning ecosystem.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
@@ -61,11 +60,11 @@ export default function LaunchPad() {
         </div>
 
         <button
-          onClick={() => navigate('/countdown')}
+          onClick={() => navigate('/home')}
           className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full text-lg font-semibold shadow-2xl shadow-purple-500/40 hover:scale-[1.02] transition-transform focus:outline-none focus:ring-4 focus:ring-purple-300"
         >
           <Rocket className="w-6 h-6 mr-3" />
-          Initiate Launch Sequence
+          Enter Platform
         </button>
       </div>
     </div>
