@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send, Globe } from 'lucide-react'
 import Hero from '../components/Hero'
+import PageWrapper from '../components/PageWrapper'
 import { useState } from 'react'
 import { api } from '../utils/api'
 import { useToast } from '../utils/toast'
@@ -56,61 +57,61 @@ export default function Contact() {
   }
 
   return (
-    <>
+    <PageWrapper>
       {ToastComponent}
       <Hero
         title="Contact TechM4India – Let's Build the Future Together"
         description="Get in touch with us to learn more about our programs, partnerships, or career opportunities."
       />
 
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Get in Touch</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary-600" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30">
+                    <MapPin className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Location</h3>
-                    <p className="text-gray-600">Hyderabad, India</p>
+                    <h3 className="font-semibold text-white mb-1">Location</h3>
+                    <p className="text-gray-300">Hyderabad, India</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary-600" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30">
+                    <Phone className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <a href="tel:+916301814246" className="text-primary-600 hover:text-primary-700">
+                    <h3 className="font-semibold text-white mb-1">Phone</h3>
+                    <a href="tel:+916301814246" className="text-purple-400 hover:text-purple-300">
                       +91 6301814246
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-primary-600" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30">
+                    <Mail className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:techm4india@gmail.com" className="text-primary-600 hover:text-primary-700">
+                    <h3 className="font-semibold text-white mb-1">Email</h3>
+                    <a href="mailto:techm4india@gmail.com" className="text-purple-400 hover:text-purple-300">
                       techm4india@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-primary-600" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30">
+                    <Globe className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Website</h3>
-                    <a href="https://www.techm4india.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700">
+                    <h3 className="font-semibold text-white mb-1">Website</h3>
+                    <a href="https://www.techm4india.com" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
                       www.techm4india.com
                     </a>
                   </div>
@@ -120,10 +121,10 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Send us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name
                   </label>
                   <input
@@ -131,13 +132,13 @@ export default function Contact() {
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-purple-900/20 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email
                   </label>
                   <input
@@ -145,13 +146,13 @@ export default function Contact() {
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-purple-900/20 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                     Phone
                   </label>
                   <input
@@ -159,12 +160,12 @@ export default function Contact() {
                     id="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-purple-900/20 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message
                   </label>
                   <textarea
@@ -172,7 +173,7 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-purple-900/20 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
                     required
                   />
                 </div>
@@ -180,7 +181,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -201,29 +202,25 @@ export default function Contact() {
       </section>
 
       {/* FAQs Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-all hover:shadow-lg"
+                className="bg-purple-900/20 border-2 border-purple-500/30 rounded-lg overflow-hidden cursor-pointer"
                 onClick={() => toggleFaq(index)}
               >
                 <div className="p-6 flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
-                  <button className="flex-shrink-0 text-primary-600 hover:text-primary-700">
-                    {expandedFaq === index ? (
-                      <span className="text-2xl">−</span>
-                    ) : (
-                      <span className="text-2xl">+</span>
-                    )}
+                  <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
+                  <button className="flex-shrink-0 text-purple-400 hover:text-purple-300 text-2xl font-bold">
+                    {expandedFaq === index ? '−' : '+'}
                   </button>
                 </div>
                 {expandedFaq === index && (
                   <div className="px-6 pb-6 pt-0">
-                    <p className="text-gray-600">{faq.answer}</p>
+                    <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>
@@ -231,7 +228,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </>
+    </PageWrapper>
   )
 }
 

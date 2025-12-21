@@ -1,0 +1,90 @@
+/* Unified Professional Background for Entire Page - Clean Dark Purple */
+.unified-page-bg {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a1a;
+  overflow-x: hidden;
+}
+
+/* Unified content wrapper */
+.unified-content-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+/* Hero Section with Light Pillar Background */
+.hero-section-with-pillar {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.light-pillar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Unified Hero Background - Clean Dark Purple - Full Page */
+.hero-bg-unified {
+  position: relative;
+  background: rgba(10, 10, 26, 0.7);
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Unified Section Styling - Clean */
+.unified-section {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* CTA Section Special Styling - Clean */
+.cta-section-special {
+  position: relative;
+}
+
+/* Section Content */
+.section-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Professional Card - Clean Styling */
+.professional-card-home {
+  position: relative;
+  background: rgba(88, 28, 135, 0.25);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Text colors for unified sections */
+.unified-section h2,
+.unified-section h3,
+.unified-section h4 {
+  color: #ffffff !important;
+}
+
+.unified-section p {
+  color: #e5e7eb !important;
+}
+
+.unified-section .text-gray-600,
+.unified-section .text-gray-700,
+.unified-section .text-gray-900 {
+  color: #e5e7eb !important;
+}
+
+/* No effects - clean styling only */
+

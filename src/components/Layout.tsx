@@ -16,9 +16,9 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-transparent">
       {!hideChrome && <Header />}
-      <main className={`flex-grow ${hideChrome ? '' : 'md:ml-64'} transition-all bg-transparent`}>{children}</main>
+      <main className={`flex-grow ${hideChrome ? '' : 'pt-16 md:pt-20'} transition-all bg-transparent`}>{children}</main>
       {!hideChrome && (
-        <div className="md:ml-64 bg-transparent">
+        <div className="bg-transparent">
           <Footer />
         </div>
       )}

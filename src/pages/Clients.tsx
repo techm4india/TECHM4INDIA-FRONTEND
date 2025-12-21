@@ -79,92 +79,94 @@ const clientLogos = [
 
 export default function Clients() {
   return (
-    <>
-      <Hero
-        title="Our Clients, Our Mission Partners"
-        description="TechM4India works with visionary schools, universities, enterprises, and government programs to deliver an unbroken innovation journey. Every partnership is data-backed, outcome-focused, and aligned to national deep-tech priorities."
-      />
+    <div className="dark-bg-page">
+      <div className="dark-bg-content">
+        <Hero
+          title="Our Clients, Our Mission Partners"
+          description="TechM4India works with visionary schools, universities, enterprises, and government programs to deliver an unbroken innovation journey. Every partnership is data-backed, outcome-focused, and aligned to national deep-tech priorities."
+        />
 
-      <section className="py-16 bg-gradient-to-b from-white to-primary-50/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <p className="text-primary-600 uppercase tracking-wide text-sm font-semibold">
-              Trusted Across The Innovation Spectrum
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">
-              Dynamic client programs with measurable impact
-            </h2>
-            <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-              Each cohort plugs into TechM4India’s platform differently—labs, SaaS, fellowships, or end-to-end digital
-              operations. The cards below update automatically from our engagement tracker.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {clientSegments.map((segment) => (
-              <div
-                key={segment.title}
-                className="bg-white/90 rounded-2xl border border-primary-100 shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-primary-500 font-semibold">{segment.tag}</p>
-                    <h3 className="text-2xl font-semibold text-gray-900">{segment.title}</h3>
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600">
-                    <segment.icon className="w-6 h-6" />
-                  </div>
-                </div>
-
-                <p className="text-gray-600 mb-4 flex-1">{segment.description}</p>
-
-                <ul className="space-y-2 mb-6">
-                  {segment.metrics.map((metric) => (
-                    <li key={metric} className="text-sm text-gray-700 flex items-start space-x-2">
-                      <span className="mt-1 h-1.5 w-1.5 bg-primary-500 rounded-full" />
-                      <span>{metric}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="border-t border-gray-100 pt-4">
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spotlight Initiative</p>
-                  <p className="text-sm font-semibold text-gray-900 mt-1">{segment.highlight.client}</p>
-                  <p className="text-sm text-gray-600">{segment.highlight.outcome}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-            <div>
-              <p className="text-sm uppercase tracking-wide text-primary-600 font-semibold">Representative partners</p>
-              <h3 className="text-2xl font-bold text-gray-900">Growing client roster</h3>
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <p className="text-purple-400 uppercase tracking-wide text-sm font-semibold">
+                Trusted Across The Innovation Spectrum
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
+                Dynamic client programs with measurable impact
+              </h2>
+              <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
+                Each cohort plugs into TechM4India's platform differently—labs, SaaS, fellowships, or end-to-end digital
+                operations. The cards below update automatically from our engagement tracker.
+              </p>
             </div>
-            <p className="text-gray-600 md:max-w-lg">
-              We adapt to each partner’s operating model—be it public-private partnerships, campus innovation cells, or
-              global accelerator cohorts.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {clientLogos.map((client) => (
-              <div
-                key={client.name}
-                className="border border-gray-200 rounded-xl p-5 text-center hover:border-primary-200 hover:shadow-sm transition-colors"
-              >
-                <div className="text-lg font-semibold text-gray-900">{client.name}</div>
-                <div className="text-sm text-gray-500">{client.tagline}</div>
-              </div>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {clientSegments.map((segment) => (
+                <div
+                  key={segment.title}
+                  className="bg-purple-900/20 border-2 border-purple-500/30 rounded-2xl p-6 flex flex-col"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-purple-400 font-semibold">{segment.tag}</p>
+                      <h3 className="text-2xl font-semibold text-white">{segment.title}</h3>
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 border border-purple-500/30">
+                      <segment.icon className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <p className="text-gray-300 mb-4 flex-1">{segment.description}</p>
+
+                  <ul className="space-y-2 mb-6">
+                    {segment.metrics.map((metric) => (
+                      <li key={metric} className="text-sm text-gray-300 flex items-start space-x-2">
+                        <span className="mt-1 h-1.5 w-1.5 bg-purple-400 rounded-full" />
+                        <span>{metric}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="border-t border-purple-500/30 pt-4">
+                    <p className="text-xs font-semibold text-purple-400 uppercase tracking-wide">Spotlight Initiative</p>
+                    <p className="text-sm font-semibold text-white mt-1">{segment.highlight.client}</p>
+                    <p className="text-sm text-gray-300">{segment.highlight.outcome}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+
+        <section className="py-12 border-t border-purple-500/30">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+              <div>
+                <p className="text-sm uppercase tracking-wide text-purple-400 font-semibold">Representative partners</p>
+                <h3 className="text-2xl font-bold text-white">Growing client roster</h3>
+              </div>
+              <p className="text-gray-300 md:max-w-lg">
+                We adapt to each partner's operating model—be it public-private partnerships, campus innovation cells, or
+                global accelerator cohorts.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {clientLogos.map((client) => (
+                <div
+                  key={client.name}
+                  className="border border-purple-500/30 rounded-xl p-5 text-center bg-purple-900/20"
+                >
+                  <div className="text-lg font-semibold text-white">{client.name}</div>
+                  <div className="text-sm text-gray-300">{client.tagline}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   )
 }
 

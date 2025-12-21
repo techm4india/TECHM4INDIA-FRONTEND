@@ -51,56 +51,60 @@ export default function Careers() {
   ]
 
   return (
-    <>
-      <Hero
-        title="Careers at TechM4India – Build the Future"
-        description="We're not offering jobs — we're offering missions. Join us to shape the future of education, SaaS, and space technology."
-      />
+    <div className="dark-bg-page">
+      <div className="dark-bg-content">
+        <Hero
+          title="Careers at TechM4India – Build the Future"
+          description="We're not offering jobs — we're offering missions. Join us to shape the future of education, SaaS, and space technology."
+        />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Roles We Hire For
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {roles.map((role) => (
-              <FeatureCard
-                key={role.title}
-                icon={role.icon}
-                title={role.title}
-                description={role.description}
-              />
-            ))}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+              Roles We Hire For
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {roles.map((role) => (
+                <FeatureCard
+                  key={role.title}
+                  icon={role.icon}
+                  title={role.title}
+                  description={role.description}
+                  className="bg-purple-900/20 border-2 border-purple-500/30"
+                />
+              ))}
+            </div>
+
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+              Why Work With Us?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {benefits.map((benefit) => (
+                <FeatureCard
+                  key={benefit.title}
+                  icon={benefit.icon}
+                  title={benefit.title}
+                  description={benefit.description}
+                  className="bg-purple-900/20 border-2 border-purple-500/30"
+                />
+              ))}
+            </div>
           </div>
+        </section>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Why Work With Us?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit) => (
-              <FeatureCard
-                key={benefit.title}
-                icon={benefit.icon}
-                title={benefit.title}
-                description={benefit.description}
-              />
-            ))}
+        <section className="py-16 bg-purple-800/50 border-t border-purple-500/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to Join Us?</h2>
+            <p className="text-xl mb-8 text-gray-300">
+              Send your resume to techm4india@gmail.com or reach out through our contact page.
+            </p>
+            <CTA
+              primary={{ text: 'Contact Us', link: '/contact' }}
+            />
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Join Us?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Send your resume to techm4india@gmail.com or reach out through our contact page.
-          </p>
-          <CTA
-            primary={{ text: 'Contact Us', link: '/contact' }}
-          />
-        </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </div>
   )
 }
 

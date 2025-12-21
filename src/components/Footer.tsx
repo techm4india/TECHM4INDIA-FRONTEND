@@ -3,12 +3,12 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-purple-950 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-3 py-1.5 rounded-lg font-bold text-xl inline-block mb-4">
+            <div className="bg-purple-800 text-white px-3 py-1.5 rounded-md font-bold text-xl inline-block mb-4 border border-purple-700/50">
               TechM4India
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
@@ -20,7 +20,7 @@ export default function Footer() {
                 href="https://linkedin.com/company/techm4india"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary-400 transition-colors"
+                className="text-gray-400 hover:text-purple-400"
               >
                 <Linkedin className="w-6 h-6" />
               </a>
@@ -28,7 +28,7 @@ export default function Footer() {
                 href="https://twitter.com/techm4india"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary-400 transition-colors"
+                className="text-gray-400 hover:text-purple-400"
               >
                 <Twitter className="w-6 h-6" />
               </a>
@@ -36,7 +36,7 @@ export default function Footer() {
                 href="https://instagram.com/techm4india"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary-400 transition-colors"
+                className="text-gray-400 hover:text-purple-400"
               >
                 <Instagram className="w-6 h-6" />
               </a>
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+        <div className="border-t border-purple-800/50 mt-8 pt-8 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} TechM4India. All rights reserved.</p>
         </div>
       </div>

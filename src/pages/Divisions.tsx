@@ -35,39 +35,41 @@ export default function Divisions() {
   ]
 
   return (
-    <>
-      <Hero
-        title="Four Divisions, One Unified Platform"
-        description="TechM4India is structured into four powerful divisions, each addressing a critical stage of the innovation journey. This structure ensures a seamless pathway for every learner, institution, and enterprise."
-      />
+    <div className="dark-bg-page">
+      <div className="dark-bg-content">
+        <Hero
+          title="Four Divisions, One Unified Platform"
+          description="TechM4India is structured into four powerful divisions, each addressing a critical stage of the innovation journey. This structure ensures a seamless pathway for every learner, institution, and enterprise."
+        />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {divisions.map((division) => (
-              <Link
-                key={division.name}
-                to={division.link}
-                className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200"
-              >
-                <div className={`bg-gradient-to-r ${division.color} p-6 text-white`}>
-                  <div className="flex items-center justify-between">
-                    <div className="bg-white/20 rounded-lg p-3">
-                      {division.icon}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {divisions.map((division) => (
+                <Link
+                  key={division.name}
+                  to={division.link}
+                  className="group bg-purple-900/20 rounded-xl shadow-md overflow-hidden border-2 border-purple-500/30"
+                >
+                  <div className={`bg-gradient-to-r ${division.color} p-6 text-white`}>
+                    <div className="flex items-center justify-between">
+                      <div className="bg-white/20 rounded-lg p-3">
+                        {division.icon}
+                      </div>
+                      <ArrowRight className="w-6 h-6" />
                     </div>
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                    <h3 className="text-2xl font-bold mt-4">{division.name}</h3>
                   </div>
-                  <h3 className="text-2xl font-bold mt-4">{division.name}</h3>
-                </div>
-                <div className="p-6">
-                  <p className="text-gray-600 text-lg">{division.description}</p>
-                </div>
-              </Link>
-            ))}
+                  <div className="p-6">
+                    <p className="text-gray-300 text-lg">{division.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </div>
   )
 }
 

@@ -19,7 +19,7 @@ export default function CTA({ primary, secondary, className = '' }: CTAProps) {
       {primary && (
         <Link
           to={primary.link}
-          className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium shadow-lg hover:shadow-xl"
+          className="inline-flex items-center px-6 py-3 bg-purple-800 text-white rounded-md hover:bg-purple-700 font-medium border border-purple-700/50 hover:border-purple-600"
         >
           {primary.text}
           <ArrowRight className="ml-2 w-5 h-5" />
@@ -28,7 +28,7 @@ export default function CTA({ primary, secondary, className = '' }: CTAProps) {
       {secondary && (
         <Link
           to={secondary.link}
-          className="inline-flex items-center px-6 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-medium"
+          className="inline-flex items-center px-6 py-3 bg-transparent text-white border border-purple-600/60 rounded-md hover:bg-purple-900/40 hover:border-purple-500 font-medium"
         >
           {secondary.text}
         </Link>

@@ -1,0 +1,43 @@
+/* Dark Theme Background - Clean Dark Purple - Matching Home Page */
+.dark-bg-page {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a1a;
+  overflow-x: hidden;
+}
+
+.dark-bg-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark theme text utilities */
+.dark-text-white {
+  color: #ffffff !important;
+}
+
+.dark-text-gray-light {
+  color: #e5e7eb !important;
+}
+
+.dark-text-gray-medium {
+  color: #d1d5db !important;
+}
+
+/* Dark theme card styles */
+.dark-card {
+  background: rgba(88, 28, 135, 0.2);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+}
+
+.dark-card h2,
+.dark-card h3,
+.dark-card h4 {
+  color: #ffffff;
+}
+
+.dark-card p {
+  color: #e5e7eb;
+}
+
+
