@@ -19,19 +19,6 @@ export default function LaunchPage() {
       <Header />
 
       <div className="landing-content max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 flex flex-col items-center text-center space-y-12">
-        {/* Landing Image */}
-        <div className="w-full max-w-5xl mx-auto mb-8 relative z-10">
-          <div className="relative rounded-2xl overflow-hidden border-2 border-purple-500/30">
-            <img 
-              src="/861763.jpg" 
-              alt="TechM4India Innovation Ecosystem" 
-              className="w-full h-auto object-cover rounded-2xl"
-              style={{ maxHeight: '600px' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-          </div>
-        </div>
-
         <div className="space-y-6">
           <Shuffle
             text="TechM4India Mission Control"
