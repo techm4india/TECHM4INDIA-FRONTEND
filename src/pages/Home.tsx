@@ -1,9 +1,10 @@
-import { GraduationCap, Rocket, Lightbulb, Target, Users, BookOpen, Code, Globe, Zap, ArrowRight } from 'lucide-react'
+import { GraduationCap, Rocket, Lightbulb, Target, Users, BookOpen, Code, Globe, Zap, ArrowRight, Eye, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import CTA from '../components/CTA'
 import FeatureCard from '../components/FeatureCard'
 import LightPillar from '../components/LightPillar'
+import AIGifCard from '../components/AIGifCard'
 import './Home.css'
 
 export default function Home() {
@@ -56,28 +57,66 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="professional-card-home glow-border-home">
-              <div className="flex items-center mb-4 relative z-2">
-                <div className="bg-purple-500/20 p-3 rounded-xl mr-4 professional-card-icon">
-                  <Rocket className="w-8 h-8 text-purple-400" />
+            <div className="bg-purple-900/20 rounded-2xl p-8 border-2 border-purple-500/30">
+              <div className="flex items-center mb-4">
+                <div className="bg-purple-500/20 p-3 rounded-xl mr-4 border border-purple-500/30">
+                  <Eye className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Our Mission</h3>
+                <h3 className="text-3xl font-bold text-white">Our Vision</h3>
               </div>
-              <p className="text-lg text-gray-300 leading-relaxed relative z-2">
-                To transform India's education system by providing hands-on, real-world learning experiences that bridge the gap between theoretical knowledge and practical innovation. We empower students to become creators, not just consumers of knowledge.
+              <p className="text-lg text-gray-300 leading-relaxed">
+                To make India the global hub for engineering innovation by 2037.
               </p>
             </div>
 
-            <div className="professional-card-home glow-border-home">
-              <div className="flex items-center mb-4 relative z-2">
-                <div className="bg-purple-500/20 p-3 rounded-xl mr-4 professional-card-icon">
+            <div className="bg-purple-900/20 rounded-2xl p-8 border-2 border-purple-500/30">
+              <div className="flex items-center mb-4">
+                <div className="bg-purple-500/20 p-3 rounded-xl mr-4 border border-purple-500/30">
                   <Target className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Our Vision</h3>
+                <h3 className="text-3xl font-bold text-white">Our Mission</h3>
               </div>
-              <p className="text-lg text-gray-300 leading-relaxed relative z-2">
-                To make India the global hub for engineering innovation by 2037. We envision a future where every Indian student has access to world-class experiential learning facilities and opportunities to work on cutting-edge projects from an early age.
+              <p className="text-lg text-gray-300 leading-relaxed">
+                To build an ecosystem where every student graduates with practical skills, research publications, and startup potential.
               </p>
+            </div>
+          </div>
+
+          {/* Our Approach Section */}
+          <div className="bg-purple-900/20 rounded-2xl p-8 md:p-12 border-2 border-purple-500/30 mt-12">
+            <h3 className="text-2xl font-bold text-white mb-6">Our Approach</h3>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              We bring together schools, colleges, enterprises, and space research into a single ecosystem, ensuring every learner's journey is complete.
+            </p>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              From STEM labs in schools to AI-powered enterprise solutions and finally to global space-tech opportunities, we provide a seamless growth pathway that no other platform offers.
+            </p>
+          </div>
+
+          {/* What Makes Us Different Section */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-white text-center mb-12">
+              What Makes Us Different
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <FeatureCard
+                icon={<Users className="w-8 h-8" />}
+                title="Unified Ecosystem"
+                description="We connect every stage of a student's journey from K-12 to space-tech careers in one platform."
+                className="bg-purple-900/20 border-2 border-purple-500/30"
+              />
+              <FeatureCard
+                icon={<TrendingUp className="w-8 h-8" />}
+                title="Experiential Learning"
+                description="Beyond textbooks - maker spaces, hackathons, real-world projects, and global collaborations."
+                className="bg-purple-900/20 border-2 border-purple-500/30"
+              />
+              <FeatureCard
+                icon={<Target className="w-8 h-8" />}
+                title="Future-Ready"
+                description="Programs aligned with NEP 2020 and global standards, preparing students for tomorrow's challenges."
+                className="bg-purple-900/20 border-2 border-purple-500/30"
+              />
             </div>
           </div>
         </div>
@@ -118,69 +157,69 @@ export default function Home() {
         </div>
       </section>
 
-        {/* The Journey Section */}
+        {/* AI Innovation Section */}
         <section className="py-20 unified-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              The Complete Innovation Journey
+              AI-Powered Innovation
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              From a curious school student to a space researcher—one seamless path with no gaps.
+              Harnessing the power of Artificial Intelligence to transform education and innovation.
             </p>
           </div>
 
-          <div className="relative">
-            {/* Journey Timeline */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-purple-500/40">
-                  <GraduationCap className="w-8 h-8 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">K-12 Schools</h3>
-                <p className="text-gray-300">
-                  Start with STEM labs, robotics, coding clubs, and maker spaces. Build curiosity and foundational skills.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-purple-500/40">
-                  <Lightbulb className="w-8 h-8 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Engineering Colleges</h3>
-                <p className="text-gray-300">
-                  Advanced projects, internships, research opportunities, and industry collaborations. Turn ideas into innovations.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-purple-500/40">
-                  <Zap className="w-8 h-8 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Solutions & Research</h3>
-                <p className="text-gray-300">
-                  Work on enterprise solutions, cutting-edge research, and contribute to India's technological advancement.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-purple-500/40">
-                  <Rocket className="w-8 h-8 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Space & Innovation</h3>
-                <p className="text-gray-300">
-                  Participate in space research, satellite projects, and become a global leader in innovation.
-                </p>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AIGifCard
+              gifUrl="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif"
+              title="AI & Machine Learning"
+              description="Advanced AI algorithms powering intelligent learning systems and predictive analytics."
+              fallbackIcon={<Code className="w-16 h-16" />}
+              alt="AI Machine Learning"
+            />
+            <AIGifCard
+              gifUrl="https://media.giphy.com/media/3o7aD2saalQqBG3xyQ/giphy.gif"
+              title="Robotics & Automation"
+              description="Intelligent robots and automated systems transforming manufacturing and education."
+              fallbackIcon={<Rocket className="w-16 h-16" />}
+              alt="Robotics Automation"
+            />
+            <AIGifCard
+              gifUrl="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif"
+              title="Neural Networks"
+              description="Deep learning networks enabling breakthrough innovations in education technology."
+              fallbackIcon={<Zap className="w-16 h-16" />}
+              alt="Neural Networks"
+            />
+            <AIGifCard
+              gifUrl="https://media.giphy.com/media/3o7aCTPPb4OLK9qLl2/giphy.gif"
+              title="Data Science"
+              description="Big data analytics driving insights and personalized learning experiences."
+              fallbackIcon={<Target className="w-16 h-16" />}
+              alt="Data Science"
+            />
+            <AIGifCard
+              gifUrl="https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif"
+              title="Computer Vision"
+              description="AI-powered vision systems enabling smart classrooms and interactive learning."
+              fallbackIcon={<Globe className="w-16 h-16" />}
+              alt="Computer Vision"
+            />
+            <AIGifCard
+              gifUrl="https://media.giphy.com/media/3o7aD2saalQqBG3xyQ/giphy.gif"
+              title="Space Technology"
+              description="AI-driven space research and satellite technology advancing India's space mission."
+              fallbackIcon={<Rocket className="w-16 h-16" />}
+              alt="Space Technology"
+            />
           </div>
 
           <div className="mt-12 text-center">
             <Link
               to="/divisions"
-              className="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium shadow-lg hover:shadow-xl border-2 border-purple-400/50"
+              className="inline-flex items-center px-6 py-3 bg-purple-800 text-white rounded-md hover:bg-purple-700 font-medium border border-purple-700/50"
             >
-              Explore All Divisions
+              Explore Our AI Solutions
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>

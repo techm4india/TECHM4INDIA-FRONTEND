@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown, LogOut, Rocket } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
+import { hasBillingAccess } from '../utils/billingAccess'
 
 export default function Header() {
   const location = useLocation()
@@ -32,7 +33,6 @@ export default function Header() {
 
   const navigation = [
     { name: 'Home', path: '/home' },
-    { name: 'About Us', path: '/about' },
     { name: 'Why TechM4India', path: '/why-techm4india' },
   ]
 
@@ -155,6 +155,19 @@ export default function Header() {
             >
               Careers
             </Link>
+
+            {hasBillingAccess(user) && (
+              <Link
+                to="/billing"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  isActive('/billing')
+                    ? 'text-white'
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                Billing
+              </Link>
+            )}
 
             <Link
               to="/contact"
@@ -280,6 +293,20 @@ export default function Header() {
               >
                 Careers
               </Link>
+
+              {hasBillingAccess(user) && (
+                <Link
+                  to="/billing"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                    isActive('/billing')
+                      ? 'bg-purple-500/30 text-white border-l-4 border-purple-400 shadow-lg shadow-purple-500/20'
+                      : 'text-gray-300 hover:bg-purple-500/20 hover:text-white'
+                  }`}
+                >
+                  Billing
+                </Link>
+              )}
 
               <Link
                 to="/contact"

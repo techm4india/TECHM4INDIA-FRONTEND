@@ -21,7 +21,12 @@ export default function Login() {
       showToast('Login successful!', 'success')
       navigate('/home')
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Login failed. Please check your credentials.'
+      let errorMessage = 'Login failed. Please check your credentials.'
+      
+      if (error instanceof Error) {
+        errorMessage = error.message
+      }
+      
       showToast(errorMessage, 'error')
     } finally {
       setIsLoading(false)

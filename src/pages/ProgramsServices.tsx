@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom'
-import { GraduationCap, Code, Rocket, Globe, ArrowRight } from 'lucide-react'
+import { GraduationCap, Code, Rocket, Globe, ArrowRight, CreditCard } from 'lucide-react'
+import { useState } from 'react'
 import Hero from '../components/Hero'
+import PaymentForm from '../components/PaymentForm'
 
 export default function ProgramsServices() {
+  const [showPaymentForm, setShowPaymentForm] = useState(false)
+  const [selectedService, setSelectedService] = useState<string>('')
+
+  const handlePaymentClick = (serviceName: string) => {
+    setSelectedService(serviceName)
+    setShowPaymentForm(true)
+  }
+
   return (
     <div className="dark-bg-page">
       <div className="dark-bg-content">
@@ -20,12 +30,21 @@ export default function ProgramsServices() {
                   <h3 className="text-2xl font-bold text-white">TechM4Schools</h3>
                 </div>
                 <p className="text-gray-300 mb-4">Innovation labs, STEM education, coding bootcamps for schools.</p>
-                <Link
-                  to="/divisions/schools"
-                  className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
-                >
-                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                <div className="flex gap-3 flex-wrap">
+                  <Link
+                    to="/divisions/schools"
+                    className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
+                  >
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <button
+                    onClick={() => handlePaymentClick('TechM4Schools')}
+                    className="inline-flex items-center px-4 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-700 font-medium border border-purple-700/50 text-sm"
+                  >
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    Pay Now
+                  </button>
+                </div>
               </div>
 
               <div className="bg-purple-900/20 border-2 border-purple-500/30 p-8 rounded-xl">
@@ -34,12 +53,21 @@ export default function ProgramsServices() {
                   <h3 className="text-2xl font-bold text-white">TechM4Engineering</h3>
                 </div>
                 <p className="text-gray-300 mb-4">Research labs, internships, hackathons for engineering colleges.</p>
-                <Link
-                  to="/divisions/engineering"
-                  className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
-                >
-                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                <div className="flex gap-3 flex-wrap">
+                  <Link
+                    to="/divisions/engineering"
+                    className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
+                  >
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <button
+                    onClick={() => handlePaymentClick('TechM4Engineering')}
+                    className="inline-flex items-center px-4 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-700 font-medium border border-purple-700/50 text-sm"
+                  >
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    Pay Now
+                  </button>
+                </div>
               </div>
 
               <div className="bg-purple-900/20 border-2 border-purple-500/30 p-8 rounded-xl">
@@ -48,12 +76,21 @@ export default function ProgramsServices() {
                   <h3 className="text-2xl font-bold text-white">TechM4Solutions</h3>
                 </div>
                 <p className="text-gray-300 mb-4">ERP, SaaS, and AI-powered digital platforms for institutions.</p>
-                <Link
-                  to="/divisions/solutions"
-                  className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
-                >
-                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                <div className="flex gap-3 flex-wrap">
+                  <Link
+                    to="/divisions/solutions"
+                    className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
+                  >
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <button
+                    onClick={() => handlePaymentClick('TechM4Solutions')}
+                    className="inline-flex items-center px-4 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-700 font-medium border border-purple-700/50 text-sm"
+                  >
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    Pay Now
+                  </button>
+                </div>
               </div>
 
               <div className="bg-purple-900/20 border-2 border-purple-500/30 p-8 rounded-xl">
@@ -62,12 +99,21 @@ export default function ProgramsServices() {
                   <h3 className="text-2xl font-bold text-white">TechM4Space</h3>
                 </div>
                 <p className="text-gray-300 mb-4">Global space-tech opportunities and aerospace careers.</p>
-                <Link
-                  to="/divisions/space"
-                  className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
-                >
-                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                <div className="flex gap-3 flex-wrap">
+                  <Link
+                    to="/divisions/space"
+                    className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300"
+                  >
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <button
+                    onClick={() => handlePaymentClick('TechM4Space')}
+                    className="inline-flex items-center px-4 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-700 font-medium border border-purple-700/50 text-sm"
+                  >
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    Pay Now
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -99,6 +145,14 @@ export default function ProgramsServices() {
             </div>
           </div>
         </section>
+
+        {showPaymentForm && (
+          <PaymentForm
+            selectedService={selectedService}
+            serviceType="service"
+            onClose={() => setShowPaymentForm(false)}
+          />
+        )}
       </div>
     </div>
   )

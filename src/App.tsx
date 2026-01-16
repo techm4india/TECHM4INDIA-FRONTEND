@@ -37,6 +37,7 @@ const DevOpsSecurity = lazy(() => import('./pages/techstack/DevOpsSecurity'))
 const Roadmap = lazy(() => import('./pages/Roadmap'))
 const Careers = lazy(() => import('./pages/Careers'))
 const Contact = lazy(() => import('./pages/Contact'))
+const Billing = lazy(() => import('./pages/Billing'))
 const Login = lazy(() => import('./pages/Login'))
 const Register = lazy(() => import('./pages/Register'))
 const ScrollStackDemo = lazy(() => import('./pages/ScrollStackDemo'))
@@ -106,6 +107,7 @@ function App() {
               <Route path="/roadmap" element={<Roadmap />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/billing" element={<Billing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/scroll-stack-demo" element={<ScrollStackDemo />} />

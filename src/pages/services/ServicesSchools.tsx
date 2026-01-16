@@ -1,9 +1,19 @@
-import { BookOpen, Users, Lightbulb, Trophy, Database } from 'lucide-react'
+import { BookOpen, Users, Lightbulb, Trophy, Database, CreditCard } from 'lucide-react'
+import { useState } from 'react'
 import Hero from '../../components/Hero'
 import FeatureCard from '../../components/FeatureCard'
 import CTA from '../../components/CTA'
+import PaymentForm from '../../components/PaymentForm'
 
 export default function ServicesSchools() {
+  const [showPaymentForm, setShowPaymentForm] = useState(false)
+  const [selectedService, setSelectedService] = useState<string>('')
+
+  const handlePaymentClick = (serviceName: string) => {
+    setSelectedService(serviceName)
+    setShowPaymentForm(true)
+  }
+
   const services = [
     {
       icon: <BookOpen className="w-8 h-8" />,
@@ -43,12 +53,20 @@ export default function ServicesSchools() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {services.map((service) => (
-              <FeatureCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-              />
+              <div key={service.title} className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+                <div className="mb-4 inline-block p-3 rounded-lg text-primary-600 bg-primary-50">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <button
+                  onClick={() => handlePaymentClick(service.title)}
+                  className="w-full bg-purple-800 text-white px-4 py-2 rounded-md hover:bg-purple-700 font-medium border border-purple-700/50 transition-colors flex items-center justify-center gap-2"
+                >
+                  <CreditCard className="w-4 h-4" />
+                  Pay Now
+                </button>
+              </div>
             ))}
           </div>
 
@@ -63,6 +81,14 @@ export default function ServicesSchools() {
           </div>
         </div>
       </section>
+
+      {showPaymentForm && (
+        <PaymentForm
+          selectedService={selectedService}
+          serviceType="service"
+          onClose={() => setShowPaymentForm(false)}
+        />
+      )}
     </>
   )
 }
