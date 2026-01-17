@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { User, Mail, Phone, FileText, Briefcase, GraduationCap, X, Send, Upload } from 'lucide-react'
-import { api } from '../utils/api'
 import { useToast } from '../utils/toast'
 
 interface JobApplicationFormProps {

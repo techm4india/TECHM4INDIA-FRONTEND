@@ -138,13 +138,17 @@ export default function InvoiceList({ invoices, onDelete, onView, onEdit }: Invo
       return `Rs. ${formatted}.${decimalPart}`
     }
 
-    const tableData = invoice.items.map((item, index) => [
-      (index + 1).toString(),
-      item.description,
-      item.quantity.toString(),
-      formatCurrencyForPDF(item.rate),
-      formatCurrencyForPDF(item.amount),
-    ])
+    // Recalculate amounts to ensure consistency
+    const tableData = invoice.items.map((item, index) => {
+      const itemAmount = Math.round((item.quantity * item.rate) * 100) / 100
+      return [
+        (index + 1).toString(),
+        item.description,
+        item.quantity.toString(),
+        formatCurrencyForPDF(item.rate),
+        formatCurrencyForPDF(itemAmount),
+      ]
+    })
 
     autoTable(doc, {
       startY: yPos,
@@ -169,10 +173,11 @@ export default function InvoiceList({ invoices, onDelete, onView, onEdit }: Invo
     let summaryY = finalY
     const summaryX = pageWidth - margin - 70
 
-    const subtotal = invoice.items.reduce((sum, item) => sum + item.amount, 0)
-    const discountAmount = (subtotal * invoice.discount) / 100
-    const taxAmount = ((subtotal - discountAmount) * invoice.taxRate) / 100
-    const total = subtotal - discountAmount + taxAmount
+    // Use consistent rounding to match display
+    const subtotal = Math.round(invoice.items.reduce((sum, item) => sum + (item.quantity * item.rate), 0) * 100) / 100
+    const discountAmount = Math.round((subtotal * invoice.discount) / 100 * 100) / 100
+    const taxAmount = Math.round(((subtotal - discountAmount) * invoice.taxRate) / 100 * 100) / 100
+    const total = Math.round((subtotal - discountAmount + taxAmount) * 100) / 100
 
     doc.setFontSize(10)
     doc.setFont('helvetica', 'normal')

@@ -1,7 +1,6 @@
 import { Database, BookOpen, BarChart3, Link2, FileCheck, CreditCard } from 'lucide-react'
 import { useState } from 'react'
 import Hero from '../../components/Hero'
-import FeatureCard from '../../components/FeatureCard'
 import PaymentForm from '../../components/PaymentForm'
 
 export default function TechM4SolutionsOfferings() {

@@ -1,4 +1,4 @@
-import { Code, GraduationCap, TrendingUp, Users, Zap, Rocket, Globe, Target, Brain, Layers, Cpu, Palette, FlaskConical, UserPlus, Megaphone, UserCheck, Briefcase } from 'lucide-react'
+import { Code, Zap, Rocket, Globe, Target, Brain, Layers, Cpu, Palette, FlaskConical, UserPlus, Megaphone, UserCheck, Briefcase } from 'lucide-react'
 import { useState } from 'react'
 import Hero from '../components/Hero'
 import FeatureCard from '../components/FeatureCard'

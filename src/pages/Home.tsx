@@ -1,10 +1,9 @@
-import { GraduationCap, Rocket, Lightbulb, Target, Users, BookOpen, Code, Globe, Zap, ArrowRight, Eye, TrendingUp } from 'lucide-react'
+import { GraduationCap, Rocket, Target, Users, BookOpen, Code, Globe, Zap, ArrowRight, Eye, TrendingUp, Brain, Bot, Network, BarChart3, Camera, Satellite } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import CTA from '../components/CTA'
 import FeatureCard from '../components/FeatureCard'
 import LightPillar from '../components/LightPillar'
-import AIGifCard from '../components/AIGifCard'
 import './Home.css'
 
 export default function Home() {
@@ -170,47 +169,41 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AIGifCard
-              gifUrl="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif"
+            <FeatureCard
+              icon={<Brain className="w-12 h-12 text-purple-400" />}
               title="AI & Machine Learning"
               description="Advanced AI algorithms powering intelligent learning systems and predictive analytics."
-              fallbackIcon={<Code className="w-16 h-16" />}
-              alt="AI Machine Learning"
+              className="bg-purple-900/20 border-2 border-purple-500/30 backdrop-blur-sm hover:border-purple-400 transition-colors"
             />
-            <AIGifCard
-              gifUrl="https://media.giphy.com/media/3o7aD2saalQqBG3xyQ/giphy.gif"
+            <FeatureCard
+              icon={<Bot className="w-12 h-12 text-purple-400" />}
               title="Robotics & Automation"
               description="Intelligent robots and automated systems transforming manufacturing and education."
-              fallbackIcon={<Rocket className="w-16 h-16" />}
-              alt="Robotics Automation"
+              className="bg-purple-900/20 border-2 border-purple-500/30 backdrop-blur-sm hover:border-purple-400 transition-colors"
             />
-            <AIGifCard
-              gifUrl="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif"
+            <FeatureCard
+              icon={<Network className="w-12 h-12 text-purple-400" />}
               title="Neural Networks"
               description="Deep learning networks enabling breakthrough innovations in education technology."
-              fallbackIcon={<Zap className="w-16 h-16" />}
-              alt="Neural Networks"
+              className="bg-purple-900/20 border-2 border-purple-500/30 backdrop-blur-sm hover:border-purple-400 transition-colors"
             />
-            <AIGifCard
-              gifUrl="https://media.giphy.com/media/3o7aCTPPb4OLK9qLl2/giphy.gif"
+            <FeatureCard
+              icon={<BarChart3 className="w-12 h-12 text-purple-400" />}
               title="Data Science"
               description="Big data analytics driving insights and personalized learning experiences."
-              fallbackIcon={<Target className="w-16 h-16" />}
-              alt="Data Science"
+              className="bg-purple-900/20 border-2 border-purple-500/30 backdrop-blur-sm hover:border-purple-400 transition-colors"
             />
-            <AIGifCard
-              gifUrl="https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif"
+            <FeatureCard
+              icon={<Camera className="w-12 h-12 text-purple-400" />}
               title="Computer Vision"
               description="AI-powered vision systems enabling smart classrooms and interactive learning."
-              fallbackIcon={<Globe className="w-16 h-16" />}
-              alt="Computer Vision"
+              className="bg-purple-900/20 border-2 border-purple-500/30 backdrop-blur-sm hover:border-purple-400 transition-colors"
             />
-            <AIGifCard
-              gifUrl="https://media.giphy.com/media/3o7aD2saalQqBG3xyQ/giphy.gif"
+            <FeatureCard
+              icon={<Satellite className="w-12 h-12 text-purple-400" />}
               title="Space Technology"
               description="AI-driven space research and satellite technology advancing India's space mission."
-              fallbackIcon={<Rocket className="w-16 h-16" />}
-              alt="Space Technology"
+              className="bg-purple-900/20 border-2 border-purple-500/30 backdrop-blur-sm hover:border-purple-400 transition-colors"
             />
           </div>
 

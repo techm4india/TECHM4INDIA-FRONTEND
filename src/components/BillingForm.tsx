@@ -30,6 +30,10 @@ export interface InvoiceData {
   discount: number
   notes: string
   terms: string
+  clientSignature?: string // Base64 image data
+  cfoSignature?: string // Base64 image data
+  ceoSignature?: string // Base64 image data
+  signatureType?: 'cfo' | 'ceo' // Which signature to use: CFO (Chenna Jeevan) or CEO (Mahesh Thanniru)
 }
 
 interface BillingFormProps {
@@ -62,7 +66,29 @@ export default function BillingForm({ onGenerateInvoice, initialData }: BillingF
     discount: 0,
     notes: '',
     terms: 'Payment due within 30 days of invoice date.',
+    clientSignature: '',
+    cfoSignature: '',
+    ceoSignature: '',
+    signatureType: 'cfo', // Default to CFO
   })
+
+  const handleSignatureUpload = (e: React.ChangeEvent<HTMLInputElement>, type: 'client' | 'cfo' | 'ceo') => {
+    const file = e.target.files?.[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        const base64String = reader.result as string
+        if (type === 'client') {
+          setFormData({ ...formData, clientSignature: base64String })
+        } else if (type === 'cfo') {
+          setFormData({ ...formData, cfoSignature: base64String })
+        } else if (type === 'ceo') {
+          setFormData({ ...formData, ceoSignature: base64String })
+        }
+      }
+      reader.readAsDataURL(file)
+    }
+  }
 
   const addItem = () => {
     const newItem: InvoiceItem = {
@@ -94,7 +120,8 @@ export default function BillingForm({ onGenerateInvoice, initialData }: BillingF
       if (item.id === id) {
         const updated = { ...item, [field]: value }
         if (field === 'quantity' || field === 'rate') {
-          updated.amount = updated.quantity * updated.rate
+          // Round to 2 decimal places for consistency with PDF
+          updated.amount = Math.round((updated.quantity * updated.rate) * 100) / 100
         }
         return updated
       }
@@ -484,6 +511,102 @@ export default function BillingForm({ onGenerateInvoice, initialData }: BillingF
               className="w-full px-4 py-2 bg-purple-900/20 border border-purple-500/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 resize-none"
               placeholder="Payment terms and conditions..."
             />
+          </div>
+        </div>
+
+        {/* Signatures Section */}
+        <div className="bg-purple-900/20 border-2 border-purple-500/30 rounded-xl p-6">
+          <h3 className="text-xl font-bold text-white mb-4">Signatures</h3>
+          
+          {/* Signature Type Selection */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Authorized Signatory Type
+            </label>
+            <div className="flex gap-4">
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="signatureType"
+                  value="cfo"
+                  checked={formData.signatureType === 'cfo'}
+                  onChange={() => setFormData({ ...formData, signatureType: 'cfo' })}
+                  className="mr-2"
+                />
+                <span className="text-gray-300">CFO (Chenna Jeevan)</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="signatureType"
+                  value="ceo"
+                  checked={formData.signatureType === 'ceo'}
+                  onChange={() => setFormData({ ...formData, signatureType: 'ceo' })}
+                  className="mr-2"
+                />
+                <span className="text-gray-300">CEO (Mahesh Thanniru)</span>
+              </label>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Client Signature */}
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Client Signature (Optional)
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleSignatureUpload(e, 'client')}
+                className="w-full px-4 py-2 bg-purple-900/20 border border-purple-500/30 rounded-md text-white text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-800 file:text-white hover:file:bg-purple-700 file:cursor-pointer"
+              />
+              {formData.clientSignature && (
+                <div className="mt-4 p-4 bg-purple-800/20 border border-purple-500/30 rounded-lg">
+                  <img 
+                    src={formData.clientSignature} 
+                    alt="Client Signature" 
+                    className="max-w-full h-24 object-contain"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* CFO/CEO Signature */}
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                {formData.signatureType === 'cfo' ? 'CFO Signature (Chenna Jeevan)' : 'CEO Signature (Mahesh Thanniru)'}
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleSignatureUpload(e, formData.signatureType || 'cfo')}
+                className="w-full px-4 py-2 bg-purple-900/20 border border-purple-500/30 rounded-md text-white text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-800 file:text-white hover:file:bg-purple-700 file:cursor-pointer"
+              />
+              {formData.signatureType === 'cfo' && formData.cfoSignature && (
+                <div className="mt-4 p-4 bg-purple-800/20 border border-purple-500/30 rounded-lg">
+                  <img 
+                    src={formData.cfoSignature} 
+                    alt="CFO Signature" 
+                    className="max-w-full h-24 object-contain"
+                  />
+                </div>
+              )}
+              {formData.signatureType === 'ceo' && formData.ceoSignature && (
+                <div className="mt-4 p-4 bg-purple-800/20 border border-purple-500/30 rounded-lg">
+                  <img 
+                    src={formData.ceoSignature} 
+                    alt="CEO Signature" 
+                    className="max-w-full h-24 object-contain"
+                  />
+                </div>
+              )}
+              {!formData.cfoSignature && !formData.ceoSignature && (
+                <p className="mt-2 text-xs text-gray-400">
+                  Upload signature or leave blank for signature line only
+                </p>
+              )}
+            </div>
           </div>
         </div>
 

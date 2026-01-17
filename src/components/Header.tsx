@@ -124,17 +124,6 @@ export default function Header() {
             </div>
 
             <Link
-              to="/programs-services"
-              className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                isActive('/programs-services')
-                  ? 'text-white'
-                  : 'text-gray-300 hover:text-white'
-              }`}
-            >
-              Programs & Services
-            </Link>
-
-            <Link
               to="/clients"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                 isActive('/clients')
@@ -257,18 +246,6 @@ export default function Header() {
                   </div>
                 )}
               </div>
-
-              <Link
-                to="/programs-services"
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                  isActive('/programs-services')
-                    ? 'bg-purple-500/30 text-white border-l-4 border-purple-400 shadow-lg shadow-purple-500/20'
-                    : 'text-gray-300 hover:bg-purple-500/20 hover:text-white'
-                }`}
-              >
-                Programs & Services
-              </Link>
 
               <Link
                 to="/clients"

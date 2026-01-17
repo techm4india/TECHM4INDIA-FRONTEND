@@ -22,7 +22,6 @@ const TechM4SolutionsBenefits = lazy(() => import('./pages/divisions/TechM4Solut
 const TechM4SpaceAbout = lazy(() => import('./pages/divisions/TechM4SpaceAbout'))
 const TechM4SpacePrograms = lazy(() => import('./pages/divisions/TechM4SpacePrograms'))
 const TechM4SpaceBenefits = lazy(() => import('./pages/divisions/TechM4SpaceBenefits'))
-const ProgramsServices = lazy(() => import('./pages/ProgramsServices'))
 const Clients = lazy(() => import('./pages/Clients'))
 const ServicesSchools = lazy(() => import('./pages/services/ServicesSchools'))
 const ServicesColleges = lazy(() => import('./pages/services/ServicesColleges'))
@@ -86,8 +85,6 @@ function App() {
               <Route path="/divisions/space/programs" element={<TechM4SpacePrograms />} />
               <Route path="/divisions/space/benefits" element={<TechM4SpaceBenefits />} />
               
-              {/* Programs & Services */}
-              <Route path="/programs-services" element={<ProgramsServices />} />
               <Route path="/clients" element={<Clients />} />
               <Route path="/services/schools" element={<ServicesSchools />} />
               <Route path="/services/colleges" element={<ServicesColleges />} />

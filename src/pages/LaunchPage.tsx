@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Sparkles, Rocket, Zap, Activity } from 'lucide-react'
+import { Sparkles, Zap, Activity } from 'lucide-react'
 import Shuffle from '../components/Shuffle'
 import LaunchButton from '../components/LaunchButton'
 import Header from '../components/Header'

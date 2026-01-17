@@ -9,7 +9,7 @@ import './Shuffle.css'
 // Since SplitText is optional, we'll use a fallback approach
 type SplitTextType = {
   new (element: HTMLElement, options?: { type?: string; charsClass?: string; wordsClass?: string; linesClass?: string; smartWrap?: boolean; reduceWhiteSpace?: boolean }): {
-    chars: Element[]
+    chars: HTMLElement[]
     revert: () => void
   }
 } | undefined
@@ -165,12 +165,12 @@ const Shuffle = ({
             reduceWhiteSpace: false
           })
           splitRef.current = {
-            chars: splitTextInstance.chars,
+            chars: splitTextInstance.chars.map((char: Element) => char as HTMLElement),
             revert: () => splitTextInstance.revert()
           }
         }
 
-        const chars = splitRef.current?.chars || Array.from(el.querySelectorAll('.shuffle-char'))
+        const chars = splitRef.current?.chars || Array.from(el.querySelectorAll<HTMLElement>('.shuffle-char'))
         wrappersRef.current = []
 
         const rolls = Math.max(1, Math.floor(shuffleTimes))
