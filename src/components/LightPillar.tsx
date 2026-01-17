@@ -2,6 +2,21 @@ import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import './LightPillar.css';
 
+interface LightPillarProps {
+  topColor?: string;
+  bottomColor?: string;
+  intensity?: number;
+  rotationSpeed?: number;
+  interactive?: boolean;
+  className?: string;
+  glowAmount?: number;
+  pillarWidth?: number;
+  pillarHeight?: number;
+  noiseIntensity?: number;
+  mixBlendMode?: 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light' | 'difference' | 'exclusion';
+  pillarRotation?: number;
+}
+
 const LightPillar = ({
   topColor = '#5227FF',
   bottomColor = '#FF9FFC',
@@ -15,14 +30,14 @@ const LightPillar = ({
   noiseIntensity = 0.5,
   mixBlendMode = 'screen',
   pillarRotation = 0
-}) => {
-  const containerRef = useRef(null);
-  const rafRef = useRef(null);
-  const rendererRef = useRef(null);
-  const materialRef = useRef(null);
-  const sceneRef = useRef(null);
-  const cameraRef = useRef(null);
-  const geometryRef = useRef(null);
+}: LightPillarProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const materialRef = useRef<THREE.ShaderMaterial | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
+  const geometryRef = useRef<THREE.PlaneGeometry | null>(null);
   const mouseRef = useRef(new THREE.Vector2(0, 0));
   const timeRef = useRef(0);
   const [webGLSupported, setWebGLSupported] = useState(true);
@@ -72,7 +87,7 @@ const LightPillar = ({
     rendererRef.current = renderer;
 
     // Convert hex colors to RGB
-    const parseColor = hex => {
+    const parseColor = (hex: string): THREE.Vector3 => {
       const color = new THREE.Color(hex);
       return new THREE.Vector3(color.r, color.g, color.b);
     };
@@ -234,8 +249,8 @@ const LightPillar = ({
     scene.add(mesh);
 
     // Mouse interaction - throttled for performance
-    let mouseMoveTimeout = null;
-    const handleMouseMove = event => {
+    let mouseMoveTimeout: ReturnType<typeof setTimeout> | null = null;
+    const handleMouseMove = (event: MouseEvent) => {
       if (!interactive) return;
 
       if (mouseMoveTimeout) return;
@@ -259,7 +274,7 @@ const LightPillar = ({
     const targetFPS = 60;
     const frameTime = 1000 / targetFPS;
 
-    const animate = currentTime => {
+    const animate = (currentTime: number) => {
       if (!materialRef.current || !rendererRef.current || !sceneRef.current || !cameraRef.current) return;
 
       const deltaTime = currentTime - lastTime;
@@ -276,7 +291,7 @@ const LightPillar = ({
     rafRef.current = requestAnimationFrame(animate);
 
     // Handle resize with debouncing
-    let resizeTimeout = null;
+    let resizeTimeout: ReturnType<typeof setTimeout> | null = null;
     const handleResize = () => {
       if (resizeTimeout) {
         clearTimeout(resizeTimeout);

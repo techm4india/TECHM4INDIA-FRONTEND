@@ -1,7 +1,6 @@
 import { Cloud, Link2, FileCheck, Shield, CreditCard } from 'lucide-react'
 import { useState } from 'react'
 import Hero from '../../components/Hero'
-import FeatureCard from '../../components/FeatureCard'
 import CTA from '../../components/CTA'
 import PaymentForm from '../../components/PaymentForm'
 

@@ -36,7 +36,7 @@ export default function PaymentForm({ selectedService, selectedProduct, serviceT
         amount: parseFloat(formData.amount),
       }
 
-      const response = await api.post('/payments/create-order', paymentData)
+      const response = await api.post('/payments/create-order', paymentData) as { orderId?: string }
       
       // Generate receipt
       const receiptData = {

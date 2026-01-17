@@ -72,7 +72,7 @@ export default function LaunchPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div 
               key={stat.label} 
               className="professional-card"

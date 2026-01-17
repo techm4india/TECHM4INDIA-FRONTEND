@@ -1,7 +1,6 @@
 import { FlaskConical, Briefcase, Rocket, Database, Award, CreditCard } from 'lucide-react'
 import { useState } from 'react'
 import Hero from '../../components/Hero'
-import FeatureCard from '../../components/FeatureCard'
 import PaymentForm from '../../components/PaymentForm'
 
 export default function ServicesColleges() {
